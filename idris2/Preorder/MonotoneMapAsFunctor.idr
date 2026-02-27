@@ -7,7 +7,9 @@ import Preorder.PreorderAsCategory
 import Preorder.UniquePreorder
 
 public export
-monotoneMapToFunctor : (UniquePreorder t1 po1, UniquePreorder t2 po2)
+monotoneMapToFunctor : {t1 : Type} -> {po1 : t1 -> t1 -> Type}
+  -> {t2 : Type} -> {po2 : t2 -> t2 -> Type}
+  -> (UniquePreorder t1 po1, UniquePreorder t2 po2)
   => MonotoneMap t1 po1 t2 po2
   -> CFunctor (preorderAsCategory {t = t1} {po = po1}) (preorderAsCategory {t = t2} {po = po2})
 monotoneMapToFunctor {t1} {po1} {t2} {po2} (MkMonotoneMap fun fRespectsOrd) =

@@ -4,21 +4,21 @@ import Basic.Category
 import Preorder.UniquePreorder
 
 public export
-leftIdentity : UniquePreorder t po
+leftIdentity : {t : Type} -> {po : t -> t -> Type} -> UniquePreorder t po
   => (a, b : t)
   -> (f : po a b)
   -> transitive {po} a a b (reflexive {po} a) f = f
 leftIdentity a b f = unique a b (transitive a a b (reflexive a) f) f
 
 public export
-rightIdentity : UniquePreorder t po
+rightIdentity : {t : Type} -> {po : t -> t -> Type} -> UniquePreorder t po
   => (a, b : t)
   -> (f : po a b)
   -> transitive {po} a b b f (reflexive {po} b) = f
 rightIdentity a b f = unique a b (transitive a b b f (reflexive b)) f
 
 public export
-associativity : UniquePreorder t po
+associativity : {t : Type} -> {po : t -> t -> Type} -> UniquePreorder t po
   => (a, b, c, d : t)
   -> (f : po a b)
   -> (g : po b c)

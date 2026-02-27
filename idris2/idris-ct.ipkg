@@ -31,8 +31,8 @@ modules = Utils
         , MonoidalCategory.MonoidalCategory
         , MonoidalCategory.MonoidalCategoryHelpers
         , MonoidalCategory.StrictMonoidalCategory
-        , MonoidalCategory.SymmetricMonoidalCategory
-        , MonoidalCategory.SymmetricMonoidalCategoryHelpers
+        -- SymmetricMonoidalCategory{Helpers} excluded: type-level swap
+        -- reduction issues in Idris 2 (upstream idris-ct#4, idris-ct#5)
         , PointedTypes.PointedTypesCategory
         , Preorder.MonotoneMap
         , Preorder.MonotoneMapAsFunctor

@@ -7,8 +7,7 @@ record CommutingMorphism
  (cat : Category)
  (a : obj cat) (b : obj cat) (carrier : obj cat) (c : obj cat)
  (inl : mor cat a carrier) (inr : mor cat b carrier)
- (f : mor cat a c) (g : mor cat b c)
-where
+ (f : mor cat a c) (g : mor cat b c) where
   constructor MkCommutingMorphism
   challenger         : mor cat carrier c
   commutativityLeft  : compose cat a carrier c inl challenger = f
@@ -17,8 +16,7 @@ where
 public export
 record CoProduct
   (cat : Category)
-  (a : obj cat) (b : obj cat)
-where
+  (a : obj cat) (b : obj cat) where
   constructor MkCoProduct
   carrier: obj cat
   inl: mor cat a carrier

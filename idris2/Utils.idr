@@ -16,7 +16,7 @@ interface Functor f => VerifiedFunctor (f : Type -> Type) where
                        map (g2 . g1) x = (map g2 . map g1) x
 
 public export
-functorIdentity' : VerifiedFunctor f => (x : f a) -> map Prelude.id x = x
+functorIdentity' : {f : Type -> Type} -> VerifiedFunctor f => (x : f a) -> map Prelude.id x = x
 functorIdentity' = functorIdentity id (\x => Refl)
 
 public export

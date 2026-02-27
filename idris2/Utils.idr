@@ -1,10 +1,6 @@
 module Utils
 
 public export
-swap : (a, b) -> (b, a)
-swap (x, y) = (y, x)
-
-public export
 interface Functor f => VerifiedFunctor (f : Type -> Type) where
   functorIdentity : {0 a : Type} -> (g : a -> a) -> ((v : a) -> g v = v) -> (x : f a) -> map g x = x
   functorComposition : {0 a, b : Type} -> (x : f a) ->

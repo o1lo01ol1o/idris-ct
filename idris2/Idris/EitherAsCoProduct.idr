@@ -37,8 +37,8 @@ applyExtWith :
 applyExtWith x f = apply (func f) x
 
 public export
-unique :
-     (f : ExtensionalTypeMorphism a c)
+unique : {a, b, c : Type}
+  -> (f : ExtensionalTypeMorphism a c)
   -> (g : ExtensionalTypeMorphism b c)
   -> (h : ExtensionalTypeMorphism (Either a b) c)
   -> (commutativityLeft : extCompose a (Either a b) c (MkExtensionalTypeMorphism Left) h = f)
